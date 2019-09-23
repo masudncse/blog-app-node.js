@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-blog-complete",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0"
+  }
+}
