@@ -1,0 +1,139 @@
+<%- include ../../partials/header.ejs %>
+<%- include ../../partials/nav.ejs %>
+
+<!--container-start-->
+<div class="container">
+    <div class="row">
+        <!--sidebar-start-->
+        <div class="col-md-3">
+            <%- include ../../partials/sidebar.ejs %>
+        </div>
+        <!--sidebar-end-->
+
+        <!--content-start-->
+        <div class="col-md-9">
+            <div id="content">
+                <div class="row">
+                    <!--breadcrumb-start-->
+                    <div class="col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>MANAGE POSTS</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Posts</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <!--breadcrumb-end-->
+                    <div class="col-md-12 mb-5">
+                        <form>
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <select name="" class="form-control">
+                                    <option value="">Business</option>
+                                    <option value="">Sports</option>
+                                    <option value="">Lifestyle</option>
+                                    <option value="">Showbiz</option>
+                                    <option value="">Showbiz</option>
+                                    <option value="">Health</option>
+                                    <option value="">Science</option>
+                                    <option value="">Travel</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Post Title</label>
+                                <input type="email" class="form-control" placeholder="Enter your title">
+                            </div>
+                            <div class="form-group">
+                                <label>Post Content</label>
+                                <textarea name="" cols="30" class="form-control" rows="5" placeholder="Enter your content"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-warning">Add New</button>
+                            <button type="button" class="btn btn-secondary">Reset</button>
+                        </form>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <caption>
+                                All Posts
+                                <form class="form-inline float-right">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Filter</button>
+                                </form>
+                            </caption>
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">Image</th>
+                                <th scope="col" width="120">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Lorem</td>
+                                <td>Lorem ipsum.</td>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td><img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201907/Assam_flood_pic-770x433.png?uxAYedaocl4FgqbJ7m4ArbmH073X6xtF" width="100" class="img-thumbnail" alt=""></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Lorem</td>
+                                <td>Lorem ipsum.</td>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td><img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201907/Assam_flood_pic-770x433.png?uxAYedaocl4FgqbJ7m4ArbmH073X6xtF" width="100" class="img-thumbnail" alt=""></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Lorem</td>
+                                <td>Lorem ipsum.</td>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td><img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201907/Assam_flood_pic-770x433.png?uxAYedaocl4FgqbJ7m4ArbmH073X6xtF" width="100" class="img-thumbnail" alt=""></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--content-end-->
+    </div>
+</div>
+<!--container-end-->
+
+<%- include ../../partials/footer.ejs %>

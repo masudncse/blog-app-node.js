@@ -1,0 +1,66 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/nav.ejs %>
+
+<!--container-start-->
+<div class="container">
+    <div class="row">
+        <!--content-start-->
+        <div class="col-md-9">
+            <div id="content">
+                <div class="row">
+                    <div class="col-md-12 mb-4 contact">
+                        <div class="contact-banner mb-5">
+                            <img src="https://www.infocreditgroup.com/sites/all/themes/infocredit/images/DEBT%20RECOVERY%20CALL%20CENTER%20BANNER%20FINAL-04.jpg"
+                                 width="100%" alt="">
+                            <h3 class="title">CONTACT ME</h3>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter your name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" placeholder="Enter your email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" placeholder="Enter the subject">
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea name="" cols="30" class="form-control" rows="5"
+                                          placeholder="Enter something..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox"/> Confirm your information. Thank you.
+                                </label>
+                            </div>
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">Send Email</button>
+                                <button type="button" class="btn btn-secondary">Reset Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--content-end-->
+
+        <!--sidebar-start-->
+        <div class="col-md-3">
+            <%- include ../partials/sidebar.ejs %>
+        </div>
+        <!--sidebar-end-->
+    </div>
+</div>
+<!--container-end-->
+
+<%- include ../partials/footer.ejs %>
