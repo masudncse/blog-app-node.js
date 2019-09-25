@@ -1,4 +1,5 @@
 const route = require("express").Router();
+const categoryController = require("../app/controllers/categoryController")
 
 route.get("/", function (req, res) {
     res.render("pages/home");
@@ -20,12 +21,10 @@ route.get("/admin", function (req, res) {
     res.render("admin/dashboard");
 });
 
-route.get("/admin/categories", function (req, res) {
-    res.render("admin/modules/category/index");
-});
+route.get("/admin/categories", categoryController.index);
 
 route.get("/admin/posts", function (req, res) {
-    res.render("admin/modules/post/index");
+    res.render("admin/modules/post/list");
 });
 
 module.exports = route;
