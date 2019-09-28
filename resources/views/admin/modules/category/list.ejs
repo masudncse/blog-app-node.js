@@ -34,21 +34,18 @@
                         </div>
                     </div>
                     <!--breadcrumb-end-->
-                    <div class="col-md-6 mb-5">
-                        <form>
-                            <div class="form-group">
-                                <label>Category Name</label>
-                                <input type="email" class="form-control" placeholder="Enter category name">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-warning">Add New</button>
-                            <button type="button" class="btn btn-secondary">Reset</button>
-                        </form>
+
+                    <% if(locals.message){ %>
+                    <div class="alert alert-success" role="alert">
+                        <strong>Well done!</strong> <%=message.success%>
                     </div>
+                    <% } %>
+
                     <div class="col-md-12">
                         <table class="table table-bordered">
                             <caption>
                                 All Categories
+                                <a href="/admin/categories/create" class="btn btn-primary float-right ml-1">Add New</a>
                                 <form class="form-inline float-right">
                                     <input class="form-control mr-sm-2" type="search" placeholder="Search"
                                            aria-label="Search">
@@ -69,8 +66,8 @@
                                 <td><%= category.name %></td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="/" class="btn btn-info btn-sm">Edit</a>
-                                        <a href="/admin/categories/" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/admin/categories/<%= category.id %>/edit" class="btn btn-info btn-sm">Edit</a>
+                                        <a href="/admin/categories/<%= category.id %>/delete" class="btn btn-danger btn-sm">Delete</a>
                                     </div>
                                 </td>
                             </tr>

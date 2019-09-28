@@ -1,0 +1,56 @@
+<%- include ../../partials/header.ejs %>
+<%- include ../../partials/nav.ejs %>
+
+<!--container-start-->
+<div class="container">
+    <div class="row">
+        <!--sidebar-start-->
+        <div class="col-md-3">
+            <%- include ../../partials/sidebar.ejs %>
+        </div>
+        <!--sidebar-end-->
+
+        <!--content-start-->
+        <div class="col-md-9">
+            <div id="content">
+                <div class="row">
+                    <!--breadcrumb-start-->
+                    <div class="col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>MANAGE CATEGORIES</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <!--breadcrumb-end-->
+                    <div class="col-md-6 mb-5">
+                        <form action="/admin/categories/<%= category.id %>/update" method="post">
+                            <div class="form-group">
+                                <label>Category Name</label>
+                                <input type="text" name="name" value="<%= category.name %>" class="form-control"
+                                       placeholder="Enter category name">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                            <a href="/admin/categories/create" class="btn btn-warning">Add New</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--content-end-->
+    </div>
+</div>
+<!--container-end-->
+
+<%- include ../../partials/footer.ejs %>
