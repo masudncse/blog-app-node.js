@@ -1,17 +1,18 @@
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var flash = require('connect-flash');
-
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
 const path = require('path');
 const logger = require("morgan");
+const session = require('express-session');
+const flash = require('express-flash');
 
 app.use(logger("dev"));
-app.use(cookieParser('secret'));
-app.use(session({cookie: { maxAge: 60000 }}));
+app.use(session({
+    secret: "JDJFLJSDL",
+    resave: false,
+    saveUninitialized: true
+}));
 app.use(flash());
 
 app.set('views', path.join(__dirname, "/resources/views"));

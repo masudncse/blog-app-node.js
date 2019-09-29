@@ -31,15 +31,20 @@
                             <div class="col-md-12">
                                 <hr>
                             </div>
+                            <div class="col-md-12">
+                                <% if(typeof messages.success !== 'undefined'){ %>
+                                <div class="alert alert-success" role="alert">
+                                    <strong>Well done!</strong> <%= messages.success %>
+                                </div>
+                                <% } else if(typeof messages.error !== 'undefined'){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>Opps!</strong> <%= messages.error %>
+                                </div>
+                                <% } %>
+                            </div>
                         </div>
                     </div>
                     <!--breadcrumb-end-->
-
-                    <% if(locals.message){ %>
-                    <div class="alert alert-success" role="alert">
-                        <strong>Well done!</strong> <%=message.success%>
-                    </div>
-                    <% } %>
 
                     <div class="col-md-12">
                         <table class="table table-bordered">
@@ -60,6 +65,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <% if(typeof categories !== 'undefined'){ %>
                             <% categories.forEach(function(category, key) { %>
                             <tr>
                                 <th scope="row"><%= key + 1 %></th>
@@ -67,11 +73,13 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="/admin/categories/<%= category.id %>/edit" class="btn btn-info btn-sm">Edit</a>
-                                        <a href="/admin/categories/<%= category.id %>/delete" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/admin/categories/<%= category.id %>/delete"
+                                           class="btn btn-danger btn-sm">Delete</a>
                                     </div>
                                 </td>
                             </tr>
                             <% }) %>
+                            <% } %>
                             </tbody>
                         </table>
                     </div>
