@@ -9,6 +9,10 @@
 </head>
 <body>
 <h3>500 Database Error</h3>
+<% if(typeof err != 'undefined'){%>
+<p><%= err.message %></p>
+<% }else{%>
 <p>An error occurred while database work in process.</p>
+<% }%>
 </body>
 </html>

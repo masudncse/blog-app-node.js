@@ -34,6 +34,15 @@ html, body{
 
 .contact .contact-banner{
     position: relative;
+    height: 210px;
+}
+
+.contact .contact-banner > img{
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 .contact .contact-banner h3.title{

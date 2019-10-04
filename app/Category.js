@@ -17,11 +17,11 @@ exports.getCategories = (cb) => {
 };
 
 exports.getCategory = (id, cb) => {
-    db.query("SELECT * FROM categories WHERE id=?", [id], function (err, result, fields) {
+    db.query("SELECT * FROM categories WHERE id=? LIMIT 1", [id], function (err, result, fields) {
         if (err) {
             return cb(err, null)
         }
-        cb(null, result);
+        cb(null, result[0]);
     });
 };
 

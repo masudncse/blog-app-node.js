@@ -1,15 +1,11 @@
 const route = require("express").Router();
-const categoryController = require("../../app/Http/Controllers/categoryController");
+const CategoryController = require("../../app/Http/Controllers/CategoryController");
 
-route.get("/categories", categoryController.index);
-route.get("/categories/create", categoryController.create);
-route.post("/categories/store", categoryController.store);
-route.get("/categories/:id/edit", categoryController.edit);
-route.post("/categories/:id/update", categoryController.update);
-route.get("/categories/:id/delete", categoryController.delete);
-
-route.get("/posts", function (req, res) {
-    res.render("admin/modules/post/list");
-});
+route.get("/", CategoryController.index);
+route.get("/create", CategoryController.create);
+route.post("/store", CategoryController.store);
+route.get("/edit/:id", CategoryController.edit);
+route.post("/update/:id", CategoryController.update);
+route.get("/delete/:id", CategoryController.delete);
 
 module.exports = route;

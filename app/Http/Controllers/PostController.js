@@ -1,39 +1,69 @@
 const moment = require('moment');
+const Post = require('../../Post');
 const Category = require('../../Category');
 
 exports.index = (req, res) => {
-    Category.getCategories(function (err, categories) {
-        if (err) return res.render("errors/500");
-        res.render("admin/category/list", {
-            categories
+    Post.getPosts(function (err, posts) {
+        if (err) {
+            return res.render("errors/500");
+        }
+
+        res.render("admin/post/list", {
+            posts
         });
     });
 };
 
 exports.create = (req, res) => {
-    res.render("admin/category/create");
+    Category.getCategories(function (err, categories) {
+        if (err) {
+            return res.render("errors/500");
+        }
+
+        res.render("admin/post/create", {categories});
+    });
 };
 
 exports.store = (req, res) => {
     let data = {
-        name: req.body.name,
+        categoryId: req.body.categoryId,
+        title: req.body.title,
+        content: req.body.content,
         createdAt: moment().format('YYYY-MM-DD H:mm:ss')
     };
 
-    Category.createCategory(data, function (err, result) {
-        if (err) return res.render("errors/500");
+    Post.createPost(data, function (err, result) {
+        if (err) {
+            return res.render("errors/500");
+        }
 
-        res.redirect(__siteurl + "/admin/categories/edit/" + result.insertId);
+        console.log(1);
+        Category.getCategories(function (err, categories) {
+            if (err) {
+                return res.render("errors/500");
+            }
+
+            console.log(2);
+            res.redirect(__siteurl + "/admin/posts/edit/" + result.insertId, {
+                categories
+            });
+        });
     });
 };
 
 exports.edit = (req, res) => {
-    Category.getCategory(req.params.id, function (err, category) {
-        if (err) return res.render("errors/500");
+    Post.getPost(req.params.id, function (err, post) {
+        if (err) {
+            return res.render("errors/500");
+        }
+        console.log("D"); return
 
-        res.render("admin/category/edit", {
-            category
-        });
+        Category.getCategories(function (err, categories) {
+            res.render("admin/post/edit", {
+                post,
+                categories
+            });
+        })
     });
 };
 
@@ -42,8 +72,10 @@ exports.update = (req, res) => {
         name: req.body.name
     };
 
-    Category.updateCategory(data, req.params.id, function (err, result) {
-        if (err) return res.render("errors/500");
+    Post.updatePost(data, req.params.id, function (err, result) {
+        if (err) {
+            return res.render("errors/500");
+        }
 
         req.flash('success', 'Updated successfully!');
         res.redirect("back");
@@ -51,8 +83,10 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Category.deleteCategory(req.params.id, function (err, result) {
-        if (err) return res.render("errors/500");
+    Post.deletePost(req.params.id, function (err, result) {
+        if (err) {
+            return res.render("errors/500");
+        }
 
         req.flash('success', 'Deleted successfully!');
         res.redirect("back");

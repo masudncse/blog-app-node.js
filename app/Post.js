@@ -7,8 +7,8 @@ const db = mysql.createConnection({
     database: "blogdb"
 });
 
-exports.getCategories = (cb) => {
-    db.query("SELECT * FROM categories", function (err, result, fields) {
+exports.getPosts = (cb) => {
+    db.query("SELECT * FROM posts", function (err, result, fields) {
         if (err) {
             return cb(err, null)
         }
@@ -16,8 +16,8 @@ exports.getCategories = (cb) => {
     });
 };
 
-exports.getCategory = (id, cb) => {
-    db.query("SELECT * FROM categories WHERE id=? LIMIT 1", [id], function (err, result, fields) {
+exports.getPost = (id, cb) => {
+    db.query("SELECT * FROM posts WHERE id=? LIMIT 1", [id], function (err, result, fields) {
         if (err) {
             return cb(err, null)
         }
@@ -25,8 +25,8 @@ exports.getCategory = (id, cb) => {
     });
 };
 
-exports.createCategory = (data, cb) => {
-    db.query("INSERT INTO categories SET ?", data, function (err, result, fields) {
+exports.createPost = (data, cb) => {
+    db.query("INSERT INTO posts SET ?", data, function (err, result, fields) {
         if (err) {
             return cb(err, null)
         }
@@ -34,8 +34,8 @@ exports.createCategory = (data, cb) => {
     });
 };
 
-exports.updateCategory = (data, id, cb) => {
-    db.query("UPDATE categories SET ? WHERE id=?", [data, id], function (err, result, fields) {
+exports.updatePost = (data, id, cb) => {
+    db.query("UPDATE posts SET ? WHERE id=?", [data, id], function (err, result, fields) {
         if (err) {
             return cb(err, null)
         }
@@ -43,8 +43,8 @@ exports.updateCategory = (data, id, cb) => {
     });
 };
 
-exports.deleteCategory = (id, cb) => {
-    db.query("DELETE FROM categories WHERE id='" + id + "'", function (err, result, fields) {
+exports.deletePost = (id, cb) => {
+    db.query("DELETE FROM posts WHERE id='" + id + "'", function (err, result, fields) {
         if (err) {
             return cb(err, null)
         }

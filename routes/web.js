@@ -20,6 +20,7 @@ route.get("/admin", function (req, res) {
     res.render("admin/dashboard");
 });
 
-route.use("/admin", require("./admin/index"));
+route.use("/admin/categories", require("./web/category"));
+route.use("/admin/posts", require("./web/post"));
 
 module.exports = route;

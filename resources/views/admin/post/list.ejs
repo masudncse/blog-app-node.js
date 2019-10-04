@@ -18,13 +18,13 @@
                     <div class="col-md-12 mb-4">
                         <div class="row">
                             <div class="col-md-8">
-                                <h3>MANAGE CATEGORIES</h3>
+                                <h3>MANAGE POSTS</h3>
                             </div>
                             <div class="col-md-4">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb mb-0">
                                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Posts</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -49,8 +49,8 @@
                     <div class="col-md-12">
                         <table class="table table-bordered">
                             <caption>
-                                All Categories
-                                <a href="/admin/categories/create" class="btn btn-primary float-right ml-1">Add New</a>
+                                All Posts
+                                <a href="/admin/posts/create" class="btn btn-primary float-right ml-1">Add New</a>
                                 <form class="form-inline float-right">
                                     <input class="form-control mr-sm-2" type="search" placeholder="Search"
                                            aria-label="Search">
@@ -60,20 +60,26 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">Image</th>
                                 <th scope="col" width="120">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <% if(typeof categories !== 'undefined'){ %>
-                            <% categories.forEach(function(category, key) { %>
+                            <% if(typeof posts !== 'undefined'){ %>
+                            <% posts.forEach(function(post, key) { %>
                             <tr>
                                 <th scope="row"><%= key + 1 %></th>
-                                <td><%= category.name %></td>
+                                <td><%= post.category %></td>
+                                <td><%= post.title %></td>
+                                <td><%= post.content %></td>
+                                <td><img src="<%= post.image %>" alt=""></td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-info btn-sm">Edit</a>
-                                        <a href="/admin/categories/delete/<%= category.id %>"
+                                        <a href="/admin/posts/edit/<%= post.id %>" class="btn btn-info btn-sm">Edit</a>
+                                        <a href="/admin/posts/delete/<%= post.id %>"
                                            class="btn btn-danger btn-sm">Delete</a>
                                     </div>
                                 </td>
