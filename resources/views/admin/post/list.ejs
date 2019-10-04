@@ -1,0 +1,94 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/nav.ejs %>
+
+<!--container-start-->
+<div class="container">
+    <div class="row">
+        <!--sidebar-start-->
+        <div class="col-md-3">
+            <%- include ../partials/sidebar.ejs %>
+        </div>
+        <!--sidebar-end-->
+
+        <!--content-start-->
+        <div class="col-md-9">
+            <div id="content">
+                <div class="row">
+                    <!--breadcrumb-start-->
+                    <div class="col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>MANAGE CATEGORIES</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                            <div class="col-md-12">
+                                <% if(typeof messages.success !== 'undefined'){ %>
+                                <div class="alert alert-success" role="alert">
+                                    <strong>Well done!</strong> <%= messages.success %>
+                                </div>
+                                <% } else if(typeof messages.error !== 'undefined'){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>Opps!</strong> <%= messages.error %>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <!--breadcrumb-end-->
+
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <caption>
+                                All Categories
+                                <a href="/admin/categories/create" class="btn btn-primary float-right ml-1">Add New</a>
+                                <form class="form-inline float-right">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                           aria-label="Search">
+                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Filter</button>
+                                </form>
+                            </caption>
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col" width="120">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% if(typeof categories !== 'undefined'){ %>
+                            <% categories.forEach(function(category, key) { %>
+                            <tr>
+                                <th scope="row"><%= key + 1 %></th>
+                                <td><%= category.name %></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-info btn-sm">Edit</a>
+                                        <a href="/admin/categories/delete/<%= category.id %>"
+                                           class="btn btn-danger btn-sm">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% }) %>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--content-end-->
+    </div>
+</div>
+<!--container-end-->
+
+<%- include ../partials/footer.ejs %>
