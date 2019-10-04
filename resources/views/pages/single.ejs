@@ -8,20 +8,30 @@
         <div class="col-md-9">
             <div id="content">
                 <div class="row">
-                    <% if(typeof posts !== 'undefined'){ %>
-                    <% posts.forEach(function(post, key) { %>
-                    <div class="col-md-4 mb-4">
+                    <!--breadcrumb-start-->
+                    <div class="col-md-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Business</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!--breadcrumb-end-->
+
+                    <% if(typeof post !== 'undefined'){ %>
+                    <div class="col-md-12">
                         <div class="card">
-                            <img src="https://media.gettyimages.com/photos/arch-bridge-in-kromlau-picture-id539121576?s=612x612"
-                                 class="card-img-top" alt="...">
+                            <div class="image-height">
+                                <img src="https://media.gettyimages.com/photos/arch-bridge-in-kromlau-picture-id539121576?s=612x612"
+                                     alt="...">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title"><%= post.title %></h5>
                                 <p class="card-text"><%= post.content %></p>
-                                <a href="/single/<%= post.id %>" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
-                    <% }); %>
                     <% } %>
                 </div>
             </div>

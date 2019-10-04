@@ -32,19 +32,17 @@ exports.store = (req, res) => {
         createdAt: moment().format('YYYY-MM-DD H:mm:ss')
     };
 
-    Post.createPost(data, function (err, result) {
+    Post.createPost(data, function (err, post) {
         if (err) {
             return res.render("errors/500");
         }
 
-        console.log(1);
         Category.getCategories(function (err, categories) {
             if (err) {
                 return res.render("errors/500");
             }
 
-            console.log(2);
-            res.redirect(__siteurl + "/admin/posts/edit/" + result.insertId, {
+            res.render(__siteurl + "/admin/posts/edit/" + post.insertId, {
                 categories
             });
         });
@@ -56,7 +54,6 @@ exports.edit = (req, res) => {
         if (err) {
             return res.render("errors/500");
         }
-        console.log("D"); return
 
         Category.getCategories(function (err, categories) {
             res.render("admin/post/edit", {
@@ -69,7 +66,9 @@ exports.edit = (req, res) => {
 
 exports.update = (req, res) => {
     let data = {
-        name: req.body.name
+        categoryId: req.body.categoryId,
+        title: req.body.title,
+        content: req.body.content
     };
 
     Post.updatePost(data, req.params.id, function (err, result) {

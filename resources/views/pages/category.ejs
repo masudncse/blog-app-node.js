@@ -8,6 +8,17 @@
         <div class="col-md-9">
             <div id="content">
                 <div class="row">
+                    <!--breadcrumb-start-->
+                    <div class="col-md-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Business</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!--breadcrumb-end-->
+
                     <% if(typeof posts !== 'undefined'){ %>
                     <% posts.forEach(function(post, key) { %>
                     <div class="col-md-4 mb-4">
@@ -23,6 +34,16 @@
                     </div>
                     <% }); %>
                     <% } %>
+
+                    <div class="col-md-12 mt-4 d-flex align-items-center justify-content-center">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="<%= locals.url.pathname %>?page=1">1</a></li>
+                            <li class="page-item"><a class="page-link" href="<%= locals.url.pathname %>?page=2">2</a></li>
+                            <li class="page-item"><a class="page-link" href="<%= locals.url.pathname %>?page=3">3</a></li>
+                            <li class="page-item"><a class="page-link" href="<%= locals.url.pathname %>?page=4">Next</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

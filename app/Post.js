@@ -25,6 +25,18 @@ exports.getPost = (id, cb) => {
     });
 };
 
+exports.getPostsByCategory = (req, res, cb) => {
+    let PAGE = req.query.page || 1;
+    let LIMIT = 3;
+    let OFFSET = (PAGE - 1) * LIMIT;
+    db.query("SELECT * FROM posts WHERE categoryId=? LIMIT ? OFFSET ?", [req.params.categoryId, LIMIT, OFFSET], function (err, result, fields) {
+        if (err) {
+            return cb(err, null)
+        }
+        cb(null, result);
+    });
+};
+
 exports.createPost = (data, cb) => {
     db.query("INSERT INTO posts SET ?", data, function (err, result, fields) {
         if (err) {

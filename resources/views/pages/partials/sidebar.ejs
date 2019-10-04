@@ -3,12 +3,10 @@
         <a href="#" class="list-group-item list-group-item-action active">
             <i class="fa fa-th-list"></i>&nbsp;&nbsp;CATEGORIES
         </a>
-        <a href="#" class="list-group-item list-group-item-action">Business</a>
-        <a href="#" class="list-group-item list-group-item-action">Sports</a>
-        <a href="#" class="list-group-item list-group-item-action">Lifestyle</a>
-        <a href="#" class="list-group-item list-group-item-action">Showbiz</a>
-        <a href="#" class="list-group-item list-group-item-action">Health</a>
-        <a href="#" class="list-group-item list-group-item-action">Science</a>
-        <a href="#" class="list-group-item list-group-item-action">Travel</a>
+        <% if(typeof categories !== 'undefined'){ %>
+        <% categories.forEach(function(category, key) { %>
+        <a href="/category/<%= category.id %>" class="list-group-item list-group-item-action"><%= category.name %></a>
+        <% }); %>
+        <% } %>
     </div>
 </div>

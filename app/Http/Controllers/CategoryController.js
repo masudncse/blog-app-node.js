@@ -1,5 +1,6 @@
 const moment = require('moment');
 const Category = require('../../Category');
+const { check, validationResult } = require('express-validator');
 
 exports.index = (req, res) => {
     Category.getCategories(function (err, categories) {
@@ -18,6 +19,14 @@ exports.create = (req, res) => {
 };
 
 exports.store = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.log(errors);
+        return res.render("admin/category/create", {
+            errors: errors.array()
+        });
+    }
+
     let data = {
         name: req.body.name,
         createdAt: moment().format('YYYY-MM-DD H:mm:ss')
