@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 04, 2019 at 03:19 AM
+-- Generation Time: Oct 11, 2019 at 09:12 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -35,26 +35,21 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `createdAt` timestamp NOT NULL,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
-(17, 'werwer', '2019-09-28 15:47:55', '2019-09-28 15:47:55'),
-(18, 'werwer', '2019-09-28 15:48:08', '2019-09-28 15:48:08'),
-(20, '', '2019-09-30 15:47:06', '2019-09-30 15:47:06'),
-(21, '', '2019-09-30 15:47:44', '2019-09-30 15:47:44'),
-(22, 'aaa', '2019-09-30 15:48:39', '2019-09-30 15:48:40'),
-(23, 'aaa', '2019-09-30 15:55:54', '2019-09-30 15:55:54'),
-(24, 'aaa', '2019-09-30 15:56:11', '2019-09-30 15:56:11'),
-(25, 'aaa', '2019-09-30 15:57:08', '2019-09-30 15:57:09'),
-(26, 'aaa', '2019-09-30 15:57:33', '2019-09-30 15:57:33'),
-(27, 'EEEE', '2019-09-30 16:00:38', '2019-09-30 16:00:38'),
-(28, 'EEEE', '2019-09-30 16:16:11', '2019-09-30 16:16:11'),
-(29, 'werwerwer', '2019-09-30 16:35:26', '2019-09-30 16:35:26'),
-(30, 'wrwer', '2019-09-30 16:54:08', '2019-09-30 16:54:08');
+(31, 'Bangladesh', '2019-10-11 08:26:03', '2019-10-11 08:26:03'),
+(32, 'International', '2019-10-11 08:26:10', '2019-10-11 08:26:10'),
+(33, 'Sports', '2019-10-11 08:26:21', '2019-10-11 08:26:21'),
+(34, 'Opinion', '2019-10-11 08:26:27', '2019-10-11 08:26:27'),
+(35, 'Economy', '2019-10-11 08:26:34', '2019-10-11 08:26:34'),
+(36, 'Entertainment', '2019-10-11 08:26:41', '2019-10-11 08:26:41'),
+(37, 'Lifestyle', '2019-10-11 08:26:47', '2019-10-11 08:26:47'),
+(38, 'Science', '2019-10-11 08:26:56', '2019-10-11 08:26:56');
 
 -- --------------------------------------------------------
 
@@ -72,19 +67,17 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `categoryId` (`categoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `categoryId`, `title`, `content`, `createdAt`, `updatedAt`) VALUES
-(1, 17, 'dgh', 'sdfg', '2019-09-30 17:35:48', '2019-09-30 17:35:48'),
-(2, 17, 'dgh', 'sdfg', '2019-09-30 17:38:27', '2019-09-30 17:38:27'),
-(3, 17, 'dgh', 'sdfg', '2019-09-30 17:38:40', '2019-09-30 17:38:40'),
-(4, 17, 'dgh', 'sdfg', '2019-09-30 17:40:26', '2019-09-30 17:40:26'),
-(5, 17, 'ert', 'sdh', '2019-09-30 17:41:19', '2019-09-30 17:41:19'),
-(6, 17, 'dddd', 'ddd', '2019-09-30 17:42:33', '2019-09-30 17:42:34');
+(12, 31, 'Abrar’s accused killers were ‘generous’, ‘humble’, say families', 'They were the apples of their families’ eyes. Friends, relatives and neighbours loved them. They were known in their localities to be the generous, humble and bright kids. They were supposed to take responsibility of their families after graduating from one of the most prestigious engineering universities, BUET, in just a few months. Their parents were counting the days.', '2019-10-11 08:32:48', '2019-10-11 08:32:48'),
+(13, 31, 'Abrar killing described in detail', 'Chhatra League men brutally beat up BUET student Abrar Fahad with cricket stumps and a thick skipping rope. He fell to the ground writhing in pain. They dragged him up and began thrashing him again. After this assault continued for an hour or so, Abrar began to vomit. He vomited three times and then became inert.', '2019-10-11 08:43:36', '2019-10-11 08:43:36'),
+(14, 32, 'Modi-Xi informal summit begins Friday', 'Tamil Nadu\'s picturesque seaside town of Mahabalipuram is all geared up to host the second informal summit between Indian prime minister Narendra Modi and Chinese president Xi Jinping that begins on Friday. ', '2019-10-11 08:44:28', '2019-10-11 08:44:28'),
+(15, 33, 'Bangladesh go down fighting against Qatar', 'Bangladesh’s footballers conceded a 0-2 defeat against Asian Champions Qatar in their home match of the joint Qualification round for the FIFA World Cup 2022 and AFC Asian Cup 2023 at a packed Bangabandhu National Stadium (BNS) on Thursday evening, reports UNB.', '2019-10-11 08:45:16', '2019-10-11 08:45:16');
 
 --
 -- Constraints for dumped tables
