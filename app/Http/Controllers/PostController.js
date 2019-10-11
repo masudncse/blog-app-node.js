@@ -42,9 +42,7 @@ exports.store = (req, res) => {
                 return res.render("errors/500");
             }
 
-            res.render(__siteurl + "/admin/posts/edit/" + post.insertId, {
-                categories
-            });
+            res.redirect(__siteurl + "/admin/posts/edit/" + post.insertId);
         });
     });
 };
