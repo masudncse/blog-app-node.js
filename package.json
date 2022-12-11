@@ -10,7 +10,7 @@
     "@hapi/joi": "^16.1.4",
     "body-parser": "^1.19.0",
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-fileupload": "^1.1.6-alpha.5",
     "express-flash": "0.0.2",
     "express-session": "^1.16.2",
